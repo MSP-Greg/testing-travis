@@ -18,7 +18,6 @@ module VersInfo
       puts
       puts RUBY_DESCRIPTION
       puts
-      puts "Build Type/Info: #{ri2_vers}"
       gcc = RbConfig::CONFIG["CC_VERSION_MESSAGE"] ?
         RbConfig::CONFIG["CC_VERSION_MESSAGE"][/\A.+?\n/].strip : 'unknown'
       puts "       gcc info: #{gcc}"
@@ -56,20 +55,20 @@ module VersInfo
       first('readline', "Readline::VERSION (#{@rl_type})", 3) { Readline::VERSION }
       double('zlib', 'Zlib::VERSION', 'ZLIB_VERSION', 3, 1, 2) { [Zlib::VERSION, Zlib::ZLIB_VERSION] }
 
-      if const_defined?(:Integer) &&  Integer.const_defined?(:GMP_VERSION)
-        puts "#{'Integer::GMP_VERSION'.ljust(@@col_wid[3])}#{Integer::GMP_VERSION}"
+      if const_defined?(:Integer)
+        puts Integer.const_defined?(:GMP_VERSION) ?
+          "#{'Integer::GMP_VERSION'.ljust(@@col_wid[3])}#{Integer::GMP_VERSION}" :
+          "#{'Integer::GMP_VERSION'.ljust(@@col_wid[3])}Unknown"
       elsif const_defined?(:Bignum)
-        if Bignum.const_defined?(:GMP_VERSION)
-          puts "#{'Bignum::GMP_VERSION'.ljust( @@col_wid[3])}#{Bignum::GMP_VERSION}"
-        else
-          puts "#{'Bignum::GMP_VERSION'.ljust( @@col_wid[3])}Unknown"
-        end
+        puts Bignum.const_defined?(:GMP_VERSION) ?
+          "#{'Bignum::GMP_VERSION'.ljust( @@col_wid[3])}#{Bignum::GMP_VERSION}" :
+          "#{'Bignum::GMP_VERSION'.ljust( @@col_wid[3])}Unknown"
       end
+
       puts "\n#{@@dash * 56} Load Test"
-      loads2?('dbm'     , 'DBM'     , 'socket'        , 'Socket'         , 4)
-      loads2?('digest'  , 'Digest'  , 'win32/registry', 'Win32::Registry', 4)
-      loads2?('fiddle'  , 'Fiddle'  , 'win32ole'      , 'WIN32OLE'       , 4)
-      loads1?('zlib'    , 'Zlib', 4, chk_rake(4))
+      loads2?('dbm'    , 'DBM'    , 'fiddle' , 'Fiddle' , 4)
+      loads2?('digest' , 'Digest' , 'socket' , 'Socket' , 4)
+      loads1?('zlib'   , 'Zlib', 4, chk_rake(4))
 
       gem_list
       puts "\n#{@@dash * 110}"
