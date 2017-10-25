@@ -4,4 +4,4 @@ os:
   - linux
 
 script:
-  - sh run_vers.sh
+  - /bin/bash --login "run_vers.sh"
