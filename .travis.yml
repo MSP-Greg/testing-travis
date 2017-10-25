@@ -4,16 +4,23 @@ os:
   - linux
 
 script:
-  - "rvm use 2.0"
-  - "ruby travis_info.rb"
-  - "rvm use 2.1"
-  - "ruby travis_info.rb"
-  - "rvm use 2.2"
-  - "ruby travis_info.rb"
-  - "rvm use 2.3"
-  - "ruby travis_info.rb"
-  - "rvm use 2.4"
-  - "ruby travis_info.rb"
-  - "rvm use ruby-head"
+  - "rvm install ruby-2.0.0-p648"
+  - "rvm use ruby-2.0.0-p648"
   - "ruby travis_info.rb"
 
+  - "rvm install 2.1.10"
+  - "rvm use 2.1.10"
+  - "ruby travis_info.rb"
+
+  - "rvm use 2.2.8"
+  - "ruby travis_info.rb"
+
+  - "rvm use 2.3.5"
+  - "ruby travis_info.rb"
+
+  - "rvm use 2.4.2"
+  - "ruby travis_info.rb"
+
+  - "rvm install ruby-head"
+  - "rvm use ruby-head"
+  - "ruby travis_info.rb"
