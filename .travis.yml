@@ -4,4 +4,4 @@ os:
   - linux
 
 script:
-  - run_vers
+  - sh run_vers.sh

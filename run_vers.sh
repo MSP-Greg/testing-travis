@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/sh
 
 rvm install ruby-2.0.0-p648 --binary > /dev/null 2>&1
 rvm use ruby-2.0.0-p648
