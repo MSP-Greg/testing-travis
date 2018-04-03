@@ -1,8 +1,7 @@
-sudo: false
-dist: xenial
+# sudo: false
 
 os:
   - linux
 
 script:
-  - /bin/bash --login "run_help.sh"
+  - /bin/bash --login "run_info.sh"
