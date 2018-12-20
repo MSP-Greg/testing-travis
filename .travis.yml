@@ -10,3 +10,4 @@ rvm:
 
 script:
   - gem update --system || (gem i "rubygems-update:<3.0.0" --no-document && update_rubygems)
+  - gem --version
