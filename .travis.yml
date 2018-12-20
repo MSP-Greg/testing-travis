@@ -7,7 +7,11 @@ rvm:
   - 2.2
   - 2.2.10
   - 2.3
+  - 2.5
+  - head
 
 script:
-  - gem update --system || (gem i "rubygems-update:<3.0.0" --no-document && update_rubygems)
+  - gem update --system --conservative || (gem i "rubygems-update:~>2.7" --no-document && update_rubygems)
+  - gem update bundler --conservative
+  - ruby -v
   - gem --version
