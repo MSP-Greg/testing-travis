@@ -4,8 +4,9 @@ language: ruby
 dist: trusty
 sudo: required
 rvm:
+  - 2.2
   - 2.2.10
   
 script:
-  - gem update "rubygems-update:<3.0.0.a"
+  - gem update "rubygems-update:<3.0.0.a" --no-document
   - update_rubygems
