@@ -9,4 +9,4 @@ rvm:
   - 2.3
 
 script:
-  - (gem -iN "rubygems-update:<3.0.0" && update_rubygems) || gem update --system
+  - (gem --no-document -i "rubygems-update:<3.0.0" && update_rubygems) || gem update --system
