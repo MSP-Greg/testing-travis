@@ -6,7 +6,7 @@ sudo: required
 rvm:
   - 2.2
   - 2.2.10
-  
+  - 2.3
+
 script:
-  - gem install "rubygems-update:<3.0.0" --no-document
-  - update_rubygems
+  - (gem -iN "rubygems-update:<3.0.0" && update_rubygems) || gem update --system
