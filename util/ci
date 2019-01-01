@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+case ARGV
+when %w(before_script)
+  if /trunk/ =~ RUBY_DESCRIPTION
+    require 'fileutils'
+    Dir.chdir(RbConfig::CONFIG['sitelibdir']) { |d|
+      FileUtils.rm_r './rubygems'
+      FileUtils.rm %w( rubygems.rb ubygems.rb )
+    }
+  end
+else
+  abort "unknown args #{ARGV.inspect}"
+end

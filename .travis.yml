@@ -1,18 +1,11 @@
 # sudo: false
 
 language: ruby
-dist: trusty
-sudo: required
+dist: xenial
+
 rvm:
-  - 2.2
-  - 2.2.10
-  - 2.3
-  - 2.5
   - ruby-head
 
 script:
-  - gem update --system --conservative || (gem i "rubygems-update:~>2.7" --no-document && update_rubygems)
-  - gem update bundler --conservative
-  - ruby -v
+  - util/ci before_script
   - gem --version
-  - bundle version
