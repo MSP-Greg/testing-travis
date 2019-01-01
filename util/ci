@@ -8,9 +8,9 @@ when %w(before_script)
     require 'fileutils'
     puts "RbConfig::CONFIG['sitelibdir'] #{RbConfig::CONFIG['sitelibdir']}"
     Dir.chdir(RbConfig::CONFIG['sitelibdir']) { |d|
-#      FileUtils.rm_r 'rubygems'
-#      puts "FileUtils.rm_r 'rubygems' done"
-#      FileUtils.rm %w( rubygems.rb ubygems.rb )
+      FileUtils.rm_r 'rubygems'
+      puts "FileUtils.rm_r 'rubygems' done"
+      FileUtils.rm %w( rubygems.rb ubygems.rb )
     }
   end
 else

@@ -6,6 +6,5 @@ rvm:
   - ruby-head
 
 script:
-  - export RUBYOPT=--disable=gems
-  - util/ci before_script
+  - /bin/bash --login "util/ci before_script"
   - gem --version
