@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+puts "RUNNING SCRIPT"
+
 case ARGV
 when %w(before_script)
   if /trunk/ =~ RUBY_DESCRIPTION
@@ -8,7 +10,7 @@ when %w(before_script)
     Dir.chdir(RbConfig::CONFIG['sitelibdir']) { |d|
 #      FileUtils.rm_r 'rubygems'
 #      puts "FileUtils.rm_r 'rubygems' done"
-      FileUtils.rm %w( rubygems.rb ubygems.rb )
+#      FileUtils.rm %w( rubygems.rb ubygems.rb )
     }
   end
 else
