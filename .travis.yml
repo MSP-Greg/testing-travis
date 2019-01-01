@@ -1,7 +1,6 @@
-# sudo: false
-
 language: ruby
-dist: xenial
+dist: trusty
+sudo: required
 
 rvm:
   - ruby-head
