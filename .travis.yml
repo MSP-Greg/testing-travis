@@ -6,5 +6,5 @@ rvm:
   - ruby-head
 
 script:
-  - /bin/bash --login "ci.sh"
+  - sudo ci.sh
   - gem --version
