@@ -4,7 +4,25 @@ sudo: required
 
 rvm:
   - ruby-head
+  - 2.6.0
+  - 2.5.3
+  - 2.4.5
+  - 2.3.8
+  - 2.2.10
 
+before_install:
+  # rubygems 2.7.8 and greater include bundler
+  - |
+    rv="$(ruby -e 'STDOUT.write RUBY_VERSION')";
+    if   [ "$rv" \< "2.3" ]; then gem update --system 2.7.8 --no-document
+    elif [ "$rv" \< "2.6" ]; then gem update --system --no-document --conservative
+    elif [ "$rv" = "2.7.0" ]; then
+      lib="$(ruby -e 'STDOUT.write RbConfig::CONFIG["sitelibdir"]')";
+      echo "Processing 2.7.0 - $lib";
+      rm -rf $lib/rubygems;
+      rm -f  $lib/rubygems.rb $lib/ubygems.rb;
+    fi
+  
 script:
-  - util/rg
   - gem --version
+  - bundle version
