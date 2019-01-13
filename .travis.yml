@@ -23,5 +23,7 @@ install:
 before_script:
 
 script:
+  - where ruby
+  - ruby -v
   - gem --version
   - bundle version
