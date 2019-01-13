@@ -23,6 +23,8 @@ install:
 before_script:
 
 script:
+  - /usr/bin/ruby -e "puts RbConfig::CONFIG['bindir']"
+  - /usr/bin/ruby -v
   - ruby -e "puts RbConfig::CONFIG['bindir']"
   - ruby -v
   - gem --version
