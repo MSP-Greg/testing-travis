@@ -1,6 +1,4 @@
-language: ruby
 dist: xenial
-sudo: required
 
 rvm:
   - ruby-head
@@ -10,6 +8,10 @@ rvm:
   - 2.3.8
   - 2.2.10
 
+matrix:
+  include:
+    - os: osx
+  
 before_install:
   # rubygems 2.7.8 and greater include bundler
   - |
