@@ -23,7 +23,7 @@ install:
 before_script:
 
 script:
-  - where ruby
+  - ruby -e "puts RbConfig::CONFIG['bindir']"
   - ruby -v
   - gem --version
   - bundle version
