@@ -1,13 +1,5 @@
 dist: xenial
 
-rvm:
-  - ruby-head
-  - 2.6.0
-  - 2.5.3
-  - 2.4.5
-  - 2.3.8
-  - 2.2.10
-
 matrix:
   include:
     - os: osx
@@ -24,7 +16,11 @@ before_install:
       rm -rf $lib/rubygems;
       rm -f  $lib/rubygems.rb $lib/ubygems.rb;
     fi
-  
+
+install:
+
+before_script:
+
 script:
   - gem --version
   - bundle version
