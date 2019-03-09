@@ -16,27 +16,27 @@ rvm use 2.2.9 &&
 ruby ri2_142.rb
 
 rvm use 2.3 > /dev/null 2>&1 &&
-ruby ri2_142.rb
+ruby -rprofile ri2_142.rb
 
 rvm install 2.3.6 --binary > /dev/null 2>&1 &&
 rvm use 2.3.6 &&
-ruby ri2_142.rb
+ruby -rprofile ri2_142.rb
 
 rvm use 2.4 > /dev/null 2>&1 &&
-ruby ri2_142.rb
+ruby -rprofile ri2_142.rb
 
 rvm install 2.4.4 --binary > /dev/null 2>&1 &&
 rvm use 2.4.4 &&
-ruby ri2_142.rb
+ruby -rprofile ri2_142.rb
 
 rvm install 2.5.1 --binary > /dev/null 2>&1 &&
 rvm use 2.5.1 &&
-ruby ri2_142.rb
+ruby -rprofile ri2_142.rb
 
 rvm install 2.6.1 --binary > /dev/null 2>&1 &&
 rvm use 2.6.1 &&
-ruby ri2_142.rb
+ruby -rprofile ri2_142.rb
 
 rvm install ruby-head --binary > /dev/null 2>&1 &&
 rvm use ruby-head &&
-ruby ri2_142.rb
+ruby -rprofile ri2_142.rb

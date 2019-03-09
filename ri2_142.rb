@@ -1,5 +1,3 @@
-require 'profile'
-
 def slow_method
   5000.times do
     9999*999999999
