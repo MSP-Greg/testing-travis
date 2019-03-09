@@ -1,7 +1,6 @@
 # sudo: false
 
-os:
-  - linux
+dist: xenial
 
 script:
   - /bin/bash --login "run_info.sh"

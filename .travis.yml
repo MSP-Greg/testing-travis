@@ -1,31 +1,4 @@
 dist: xenial
-language: minimal
-
-matrix:
-  include:
-    - os: osx
-  
-before_install:
-  # rubygems 2.7.8 and greater include bundler
-  - |
-    rv="$(ruby -e 'STDOUT.write RUBY_VERSION')";
-    if   [ "$rv" \< "2.3" ]; then gem update --system 2.7.8 --no-document
-    elif [ "$rv" \< "2.6" ]; then gem update --system --no-document --conservative
-    elif [ "$rv" = "2.7.0" ]; then
-      lib="$(ruby -e 'STDOUT.write RbConfig::CONFIG["sitelibdir"]')";
-      echo "Processing 2.7.0 - $lib";
-      rm -rf $lib/rubygems;
-      rm -f  $lib/rubygems.rb $lib/ubygems.rb;
-    fi
-
-install:
-
-before_script:
 
 script:
-  - /usr/bin/ruby -e "puts RbConfig::CONFIG['bindir']"
-  - /usr/bin/ruby -v
-  - ruby -e "puts RbConfig::CONFIG['bindir']"
-  - ruby -v
-  - gem --version
-  - bundle version
+  - /bin/bash --login "run_info.sh"
