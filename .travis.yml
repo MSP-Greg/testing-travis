@@ -7,22 +7,28 @@ matrix:
   include:
     - rvm: 2.4.5
       os: osx
+      osx_image: xcode10.1
     - rvm: 2.5.5
       os: osx
+      osx_image: xcode10.1
     - rvm: 2.6.2
       os: osx
+      osx_image: xcode10.1
     - rvm: 2.4.5
       os: osx
+      osx_image: xcode10.1
       addons:
         packages:
           - openssl@1.1
     - rvm: 2.5.5
       os: osx
+      osx_image: xcode10.1
       addons:
         packages:
           - openssl@1.1
     - rvm: 2.6.2
       os: osx
+      osx_image: xcode10.1
       addons:
         packages:
           - openssl@1.1
