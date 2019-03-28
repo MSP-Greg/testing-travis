@@ -1,5 +1,8 @@
 dist: xenial
 
+git:
+  depth: 3
+
 matrix:
   include:
     - rvm: 2.4.5
@@ -25,4 +28,4 @@ matrix:
           - openssl@1.1
 
 script:
-  - ruby -ropenssl -e "puts %Q(Runtime #{OpenSSL::OPENSSL_LIBRARY_VERSION}), %Q(Compile #{OpenSSL::OPENSSL_VERSION})"
+  - ruby -ropenssl -e "puts %Q[Runtime #{OpenSSL::OPENSSL_LIBRARY_VERSION}], %Q[Compile #{OpenSSL::OPENSSL_VERSION}]"
