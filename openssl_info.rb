@@ -6,10 +6,7 @@ ruby C:\Greg\GitHub\testing-travis\openssl_info.rb
 
 require 'openssl'
 
+puts "", RUBY_DESCRIPTION
+puts "OpenSSL #{OpenSSL::VERSION}"
 puts "Runtime #{OpenSSL::OPENSSL_LIBRARY_VERSION}"
-puts "Compile #{OpenSSL::OPENSSL_VERSION}"
-meths = OpenSSL::SSL::SSLContext::METHODS
-  .reject { |m| m.to_s.end_with? 'server' }
-  .reject { |m| m.to_s.end_with? 'client' }
-  .sort
-puts "METHODS #{meths}"
+puts "Compile #{OpenSSL::OPENSSL_VERSION}", ""
