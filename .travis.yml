@@ -1,4 +1,22 @@
 dist: xenial
 
+osx_image: xcode10.1
+
+addons:
+    packages:
+      - openssl@1.1
+
+matrix:
+  include:
+    - rvm: 2.4
+    - rvm: 2.5
+    - rvm: 2.6
+    - rvm: 2.4
+      os: osx
+    - rvm: 2.5
+      os: osx
+    - rvm: 2.6
+      os: osx
+
 script:
-  - /bin/bash --login "run_info.sh"
+  - ruby -ropenssl -e "puts OpenSSL::OPENSSL_LIBRARY_VERSION, OpenSSL::OPENSSL_VERSION"
