@@ -29,7 +29,7 @@ before_install:
     rv="$(ruby -e 'STDOUT.write RUBY_VERSION')";
     if [ "$r_eng" = "ruby" ]; then
       if [ "$rv" \> "2.4" ]; then
-        # gem install openssl --no-document
+        gem list openssl
       fi
     fi
 
