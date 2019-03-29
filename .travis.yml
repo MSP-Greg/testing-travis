@@ -3,8 +3,6 @@ dist: xenial
 git:
   depth: 3
 
-osx_image: xcode10.1
-
 rvm:
   - 2.3.8
   - 2.4.5
@@ -16,10 +14,13 @@ matrix:
   include:
     - rvm: 2.4.5
       os: osx
+      osx_image: xcode10.1
     - rvm: 2.5.5
       os: osx
+      osx_image: xcode10.1
     - rvm: 2.6.2
       os: osx
+      osx_image: xcode10.1
 
 before_install:
   # rubygems 2.7.8 and greater include bundler, leave 2.6.0 untouched
@@ -28,7 +29,7 @@ before_install:
     rv="$(ruby -e 'STDOUT.write RUBY_VERSION')";
     if [ "$r_eng" = "ruby" ]; then
       if [ "$rv" \> "2.4" ]; then
-        gem install openssl --no-document
+        # gem install openssl --no-document
       fi
     fi
 
