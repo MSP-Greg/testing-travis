@@ -13,3 +13,5 @@ puts "OpenSSL #{OpenSSL::VERSION}"
 puts "src #{OpenSSL::Buffering.instance_method(:close).source_location}"
 puts "Runtime #{OpenSSL::OPENSSL_LIBRARY_VERSION}"
 puts "Compile #{OpenSSL::OPENSSL_VERSION}", ""
+puts "(1..10).step(2).hash"
+puts (1..10).step(2).hash

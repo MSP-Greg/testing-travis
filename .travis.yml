@@ -5,6 +5,13 @@ git:
 
 osx_image: xcode10.1
 
+rvm:
+  - 2.3.8
+  - 2.4.5
+  - 2.5.5
+  - 2.6.2
+  - ruby-head
+
 matrix:
   include:
     - rvm: 2.4.5
