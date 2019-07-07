@@ -1,37 +1,21 @@
-dist: xenial
+# sudo: false
 
-git:
-  depth: 3
-
-rvm:
-  - 2.3.8
-  - 2.4.5
-  - 2.5.5
-  - 2.6.2
-  - ruby-head
+# 2019-04-30 15:14 UTC
 
 matrix:
   include:
-    - rvm: 2.4.5
-      os: osx
-      osx_image: xcode10.1
-    - rvm: 2.5.5
-      os: osx
-      osx_image: xcode10.1
-    - rvm: 2.6.2
-      os: osx
-      osx_image: xcode10.1
-
-before_install:
-  # rubygems 2.7.8 and greater include bundler, leave 2.6.0 untouched
-  - |
-    r_eng="$(ruby -e 'STDOUT.write RUBY_ENGINE')";
-    rv="$(ruby -e 'STDOUT.write RUBY_VERSION')";
-    if [ "$r_eng" = "ruby" ]; then
-      if [ "$rv" \> "2.4" ]; then
-        gem list openssl
-      fi
-    fi
+    - os: linux
+      dist: trusty
+      env: os="trusty 14.04"
+    - os: linux
+      dist: xenial
+      env: os="xenial 16.04"
+    - os: linux
+      dist: bionic
+      env: os="bionic 18.04"
+    - os: osx
+      osx_image: xcode10.2
+      env: os="osx xcode 10.2"
 
 script:
-  - ruby openssl_info.rb
+  - /bin/bash --login "run_vers.sh"
